@@ -25,9 +25,7 @@ class NavControllerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val navView: BottomNavigationView = binding.navView
-
         val navController = requireActivity().findNavController(R.id.nav_host_fragment_activity_main2)
         val appBarConfiguration = AppBarConfiguration(
             setOf(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
