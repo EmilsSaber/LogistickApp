@@ -8,11 +8,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.aksoftqrandcode.databinding.FragmentNotificationsBinding
+import com.example.aksoftqrandcode.ui.ScanViewModel
 
 class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
     private val binding get() = _binding!!
+    private lateinit var scanViewModel: ScanViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,8 +25,18 @@ class NotificationsFragment : Fragment() {
         return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        scanViewModel = ViewModelProvider(requireActivity())[ScanViewModel::class.java]
+
+        scanViewModel.allScans.observe(viewLifecycleOwner) { scans ->
+            // Обработка полученного списка сканирований
+            val scanTextList = scans.map { it.data }
+            val scanText = scanTextList.joinToString("\n")
+            binding.textNotifications.text = scanText
+        }
+
+
     }
 }

@@ -9,6 +9,8 @@
     tools:context=".ui.notifications.NotificationsFragment" >
 
     <TextView
+        android:text="ok"
+        android:textColor="@color/black"
         android:id="@+id/text_notifications"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
