@@ -1,6 +1,7 @@
 package com.example.aksoftqrandcode.ui.notifications
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,11 +33,13 @@ class NotificationsFragment : Fragment() {
 
         scanViewModel.allScans.observe(viewLifecycleOwner) { scans ->
             // Обработка полученного списка сканирований
-            val scanTextList = scans.map { it.data }
-            val scanText = scanTextList.joinToString("\n")
-            binding.textNotifications.text = scanText
+            binding.dataTextView.text = scans.map { it.data }.toString()
+            binding.nameTextView.text = scans.map { it.name }.toString()
+            binding.colorTextView.text = scans.map { it.color }.toString()
+            binding.sizeTextView.text = scans.map { it.size }.toString()
+            binding.priceTextView.text = scans.map { it.price }.toString()
+            binding.descriptionTextView.text = scans.map { it.description }.toString()
+            binding.artikulTextView.text = scans.map { it.artikul }.toString()
         }
-
-
     }
 }

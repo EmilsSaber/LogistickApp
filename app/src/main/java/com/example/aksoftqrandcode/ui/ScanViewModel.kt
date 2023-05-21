@@ -3,8 +3,6 @@ package com.example.aksoftqrandcode.ui
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.aksoftqrandcode.room.AppDatabase
 import com.example.aksoftqrandcode.room.ScanDao

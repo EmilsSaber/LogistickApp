@@ -23,4 +23,14 @@
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
     <include app:graph="@navigation/nav_graph" />
+
+    <fragment
+        android:id="@+id/fillingFragment"
+        android:name="com.example.aksoftqrandcode.FillingFragment"
+        android:label="fragment_filling"
+        tools:layout="@layout/fragment_filling" >
+        <action
+            android:id="@+id/action_fillingFragment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
 </navigation>

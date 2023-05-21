@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.aksoftqrandcode.R
 import com.example.aksoftqrandcode.databinding.FragmentScannerBinding
 import com.example.aksoftqrandcode.room.ScanData
 import com.example.aksoftqrandcode.ui.ScanViewModel
@@ -48,8 +50,11 @@ class ScannerFragment : Fragment() {
         scanViewModel = ViewModelProvider(requireActivity(), ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)).get(ScanViewModel::class.java)
 
         binding.scan.setOnClickListener {
-            val scanData = ScanData(data = intentData)
-            scanViewModel.insertScanData(scanData)
+            val bundle = Bundle()
+            bundle.putString("key", intentData)
+
+            // Получите NavController и передайте ему бандл
+            findNavController().navigate(R.id.fillingFragment, bundle)
         }
     }
 

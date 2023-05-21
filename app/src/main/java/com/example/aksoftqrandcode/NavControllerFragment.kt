@@ -11,7 +11,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.aksoftqrandcode.databinding.FragmentNavControllerBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-
 class NavControllerFragment : Fragment() {
     private lateinit var binding: FragmentNavControllerBinding
     override fun onCreateView(
@@ -29,7 +28,6 @@ class NavControllerFragment : Fragment() {
         val navController = requireActivity().findNavController(R.id.nav_host_fragment_activity_main2)
         val appBarConfiguration = AppBarConfiguration(
             setOf(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-
         )
         navView.setupWithNavController(navController)
     }
